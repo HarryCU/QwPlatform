@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ED477863-518A-4120-B5C7-BC636022F1C2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QwMicroKernel</RootNamespace>
+    <AssemblyName>QwMicroKernel</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Build\Debug\Kernel\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\Build\Release\Kernel\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionDisposer.cs" />
+    <Compile Include="Collections\CacheItemCallback.cs" />
+    <Compile Include="Collections\ConcurrentLinkedQueue.cs" />
+    <Compile Include="Collections\DeferredList.cs" />
+    <Compile Include="Collections\DeferredValue.cs" />
+    <Compile Include="Collections\ICache.cs" />
+    <Compile Include="Collections\IDeferLoadable.cs" />
+    <Compile Include="Collections\IDeferredList.cs" />
+    <Compile Include="Collections\IReadOnlyCache.cs" />
+    <Compile Include="Collections\IScopedDictionary.cs" />
+    <Compile Include="Collections\KeySelector.cs" />
+    <Compile Include="Collections\MissingValueProvider.cs" />
+    <Compile Include="Collections\QwAbstractDecorator.cs" />
+    <Compile Include="Collections\QwConcurrent.cs" />
+    <Compile Include="Collections\QwDictionary.cs" />
+    <Compile Include="Collections\QwGenericType.cs" />
+    <Compile Include="Collections\QwQueue.cs" />
+    <Compile Include="Collections\QwStack.cs" />
+    <Compile Include="Collections\ReaderWriterLocked.cs" />
+    <Compile Include="Collections\ScopedDictionary.cs" />
+    <Compile Include="Command\ICommand.cs" />
+    <Compile Include="Command\ICommandContext.cs" />
+    <Compile Include="Command\Implements\QwCommandActuator.cs" />
+    <Compile Include="Command\Implements\QwCommandContext.cs" />
+    <Compile Include="Command\Implements\QwCompoundCommand.cs" />
+    <Compile Include="Configuration\PropertiesParser.cs" />
+    <Compile Include="Core\CodeTimer.cs" />
+    <Compile Include="Core\DisposableAction.cs" />
+    <Compile Include="Core\EventManager.cs" />
+    <Compile Include="Core\HashCodeCombiner.cs" />
+    <Compile Include="Core\HashSetObjectBase.cs" />
+    <Compile Include="Core\StateMachine.cs" />
+    <Compile Include="Core\StringHelpers.cs" />
+    <Compile Include="Data\DbAttributes.cs" />
+    <Compile Include="Data\DbContextImplementAttribute.cs" />
+    <Compile Include="Data\DbEventArgs.cs" />
+    <Compile Include="Data\IDbAffairSession.cs" />
+    <Compile Include="Data\IDbContext.cs" />
+    <Compile Include="Data\IDbContextFactory.cs" />
+    <Compile Include="Data\IDbExtendedService.cs" />
+    <Compile Include="Data\IDbExtendedServiceStartup.cs" />
+    <Compile Include="Data\IDbQuery.cs" />
+    <Compile Include="Data\IDbSession.cs" />
+    <Compile Include="Data\IMappingResolver.cs" />
+    <Compile Include="Data\Implements\DbAffairSession.cs" />
+    <Compile Include="Data\Implements\DbContext.cs" />
+    <Compile Include="Data\Implements\DbQuery.cs" />
+    <Compile Include="Data\Implements\DbServiceRuntime.cs" />
+    <Compile Include="Data\Implements\DbSession.cs" />
+    <Compile Include="Data\Implements\EmptyMappingResolver.cs" />
+    <Compile Include="Data\Implements\Utils.cs" />
+    <Compile Include="Data\Implements\WhereClauseBuilder.cs" />
+    <Compile Include="Data\IWhereClauseBuilder.cs" />
+    <Compile Include="Data\SqlString.cs" />
+    <Compile Include="Data\WhereClauseBuildResult.cs" />
+    <Compile Include="Disposer.cs" />
+    <Compile Include="Environment\CommandLineParser\AbstractParser.cs" />
+    <Compile Include="Environment\CommandLineParser\ArgumentElement.cs" />
+    <Compile Include="Environment\CommandLine.cs" />
+    <Compile Include="Environment\CommandLineParser\CommandLineElementParser.cs" />
+    <Compile Include="Environment\CommandLineParser\DefinitionElement.cs" />
+    <Compile Include="Environment\CommandLineParser\ExtensionForCommandLineElementParsers.cs" />
+    <Compile Include="Environment\CommandLineParser\IArgumentElement.cs" />
+    <Compile Include="Environment\CommandLineParser\ICommandLineElement.cs" />
+    <Compile Include="Environment\CommandLineParser\ICommandLineElementParser.cs" />
+    <Compile Include="Environment\CommandLineParser\IDefinitionElement.cs" />
+    <Compile Include="Environment\CommandLineParser\ISwitchElement.cs" />
+    <Compile Include="Environment\CommandLineParser\ITokenElement.cs" />
+    <Compile Include="Environment\CommandLineParser\MonadParserExtensions.cs" />
+    <Compile Include="Environment\CommandLineParser\Parser.cs" />
+    <Compile Include="Environment\CommandLineParser\Result.cs" />
+    <Compile Include="Environment\CommandLineParser\StringCommandLineParser.cs" />
+    <Compile Include="Environment\CommandLineParser\SwitchElement.cs" />
+    <Compile Include="Environment\CommandLineParser\TokenElement.cs" />
+    <Compile Include="Guard.cs" />
+    <Compile Include="Host\HostLogEventArgs.cs" />
+    <Compile Include="Host\IHost.cs" />
+    <Compile Include="Host\QwHostBase.cs" />
+    <Compile Include="Locker.cs" />
+    <Compile Include="Logging\ConsoleTraceListener.cs" />
+    <Compile Include="Logging\EmptyLogWriter.cs" />
+    <Compile Include="Logging\ILogWriter.cs" />
+    <Compile Include="Logging\ILogWriterFactory.cs" />
+    <Compile Include="Logging\LoggingLevel.cs" />
+    <Compile Include="Logging\LogWriterOutputProvider.cs" />
+    <Compile Include="Logging\TraceLogManager.cs" />
+    <Compile Include="Logging\TraceLogWriter.cs" />
+    <Compile Include="Logging\TraceLogWriterFactory.cs" />
+    <Compile Include="Net\EventArgs.cs" />
+    <Compile Include="Net\IAppClient.cs" />
+    <Compile Include="Net\IAppServer.cs" />
+    <Compile Include="Net\IBufferManager.cs" />
+    <Compile Include="Net\Implements\AppBaseClient.cs" />
+    <Compile Include="Net\Implements\AppBaseServer.cs" />
+    <Compile Include="Net\Implements\BaseProtocol.cs" />
+    <Compile Include="Net\Implements\DynamicBufferManager.cs" />
+    <Compile Include="Net\Implements\SendBufferManager.cs" />
+    <Compile Include="Net\Implements\UserToken.cs" />
+    <Compile Include="Net\Implements\UserTokenList.cs" />
+    <Compile Include="Net\Implements\UserTokenPool.cs" />
+    <Compile Include="Plugin\Implements\QwPluginContainer.cs" />
+    <Compile Include="Plugin\Implements\QwPluginContext.cs" />
+    <Compile Include="Plugin\Implements\QwPluginService.cs" />
+    <Compile Include="Plugin\IPlugin.cs" />
+    <Compile Include="Plugin\IPluginContainer.cs" />
+    <Compile Include="Plugin\IPluginContext.cs" />
+    <Compile Include="Plugin\IPluginService.cs" />
+    <Compile Include="Plugin\PluginEventArgs.cs" />
+    <Compile Include="Plugin\PluginState.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflection\AssemblyResolver.cs" />
+    <Compile Include="Reflection\Emit\AssemblyBuilder.cs" />
+    <Compile Include="Reflection\Emit\ConstructorBuilder.cs" />
+    <Compile Include="Reflection\Emit\EmitHelper.cs" />
+    <Compile Include="Reflection\Emit\GenericBinder.cs" />
+    <Compile Include="Reflection\Emit\MemoryAssemblyBuilder.cs" />
+    <Compile Include="Reflection\Emit\MethodBuilder.cs" />
+    <Compile Include="Reflection\Emit\MethodBuilderBase.cs" />
+    <Compile Include="Reflection\Emit\NameOrIndexParameter.cs" />
+    <Compile Include="Reflection\Emit\TypeBuilder.cs" />
+    <Compile Include="Reflection\IConstructor.cs" />
+    <Compile Include="Reflection\IField.cs" />
+    <Compile Include="Reflection\IL\EmptyInterceptor.cs" />
+    <Compile Include="Reflection\IL\GenerationCodeStrategy.cs" />
+    <Compile Include="Reflection\IL\IGenerationStrategy.cs" />
+    <Compile Include="Reflection\IL\IInterceptor.cs" />
+    <Compile Include="Reflection\IL\IJitInstruction.cs" />
+    <Compile Include="Reflection\IL\JitInstruction.cs" />
+    <Compile Include="Reflection\IL\Label.cs" />
+    <Compile Include="Reflection\IL\MethodBodyReader.cs" />
+    <Compile Include="Reflection\IL\OpCodeTable.cs" />
+    <Compile Include="Reflection\IMember.cs" />
+    <Compile Include="Reflection\IMethod.cs" />
+    <Compile Include="Reflection\Implements\ConstructorImplement.cs" />
+    <Compile Include="Reflection\Implements\FieldImplement.cs" />
+    <Compile Include="Reflection\Implements\MemberImplement.cs" />
+    <Compile Include="Reflection\Implements\MethodImplement.cs" />
+    <Compile Include="Reflection\Implements\PropertyImplement.cs" />
+    <Compile Include="Reflection\IProperty.cs" />
+    <Compile Include="Reflection\MethodExtensions.cs" />
+    <Compile Include="Reflection\ReflectionHelper.cs" />
+    <Compile Include="Reflection\TypeExtensions.cs" />
+    <Compile Include="RuntimeDisposer.cs" />
+    <Compile Include="Security\QwCompoundSecurity.cs" />
+    <Compile Include="Security\QwCrc32.cs" />
+    <Compile Include="Security\QwHash.cs" />
+    <Compile Include="Security\IQwSecurity.cs" />
+    <Compile Include="Security\QwAESSecurity.cs" />
+    <Compile Include="Security\QwBaseSecurity.cs" />
+    <Compile Include="Security\QwDES3Security.cs" />
+    <Compile Include="Security\QwBaseDESSecurity.cs" />
+    <Compile Include="Security\QwDESSecurity.cs" />
+    <Compile Include="Security\QwRSASecurity.cs" />
+    <Compile Include="Security\QwSecurityFactory.cs" />
+    <Compile Include="Security\QwSecurityType.cs" />
+    <Compile Include="Text\BufferingTextReader.cs" />
+    <Compile Include="Text\ITextBuffer.cs" />
+    <Compile Include="Text\LineTrackingStringBuffer.cs" />
+    <Compile Include="Text\LocationTagged.cs" />
+    <Compile Include="Text\LookaheadTextReader.cs" />
+    <Compile Include="Text\LookaheadToken.cs" />
+    <Compile Include="Text\SeekableTextReader.cs" />
+    <Compile Include="Text\SourceLocation.cs" />
+    <Compile Include="Text\SourceLocationTracker.cs" />
+    <Compile Include="Text\StringBuilder.cs" />
+    <Compile Include="Text\StringExtensions.cs" />
+    <Compile Include="Text\TextBufferReader.cs" />
+    <Compile Include="Text\TextDocumentReader.cs" />
+    <Compile Include="Text\TextExtensions.cs" />
+    <Compile Include="Threading\IThreadPool.cs" />
+    <Compile Include="Threading\IThreadRunnable.cs" />
+    <Compile Include="Threading\QwThread.cs" />
+    <Compile Include="Threading\QwThreadPool.cs" />
+    <Compile Include="Threading\SafeThread.cs" />
+    <Compile Include="Threading\ZeroSizeThreadPool.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

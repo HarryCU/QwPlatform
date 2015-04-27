@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B8C10A12-0659-4D1E-BE8C-934743CACF82}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QwVirtualFileSystem</RootNamespace>
+    <AssemblyName>QwVirtualFileSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Build\Debug\Kernel\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\Build\Release\Kernel\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cache\IO\BufferSegment.cs" />
+    <Compile Include="Cache\IO\VBuffer.cs" />
+    <Compile Include="Cache\IO\VBufferInfo.cs" />
+    <Compile Include="Collections\FileArray.cs" />
+    <Compile Include="Collections\FolderArray.cs" />
+    <Compile Include="Collections\IVFSItemArray.cs" />
+    <Compile Include="Collections\AbstractVFSItemArray.cs" />
+    <Compile Include="IO\AbstractVFSItem.cs" />
+    <Compile Include="Cache\MemoryCache.cs" />
+    <Compile Include="Collections\IFileArray.cs" />
+    <Compile Include="Collections\IFolderArray.cs" />
+    <Compile Include="IO\IFile.cs" />
+    <Compile Include="IO\IFolder.cs" />
+    <Compile Include="IO\File.cs" />
+    <Compile Include="IO\Folder.cs" />
+    <Compile Include="IO\_IStream.cs" />
+    <Compile Include="IO\_Stream.cs" />
+    <Compile Include="ISchemeProvider.cs" />
+    <Compile Include="IVFSCache.cs" />
+    <Compile Include="IO\IVFSItem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provider\AbSchemeProvider.cs" />
+    <Compile Include="Provider\Embedded\EmbeddedProvider.cs" />
+    <Compile Include="Provider\RegexMatchItem.cs" />
+    <Compile Include="Provider\RegexSchemeProvider.cs" />
+    <Compile Include="Provider\SchemeProviderTable.cs" />
+    <Compile Include="VFSPath.cs" />
+    <Compile Include="VFSRuntime.cs" />
+    <Compile Include="VFSRuntimeException.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QwMicroKernel\QwMicroKernel.csproj">
+      <Project>{ed477863-518a-4120-b5c7-bc636022f1c2}</Project>
+      <Name>QwMicroKernel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
